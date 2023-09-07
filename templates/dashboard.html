@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI-Technica Vision</title>
+    <!-- Add your CSS stylesheets and other head content here -->
+    <link rel="stylesheet" type="text/css" href="dashboard.css">
+</head>
+<body>
+     <!-- Top Navigation Bar -->
+     <nav class="top-nav">
+        <ul>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/upload">Upload Data</a></li>
+            <li><a href="/data-catalog">Data Catalog</a></li> <!-- Additional Option 1 -->
+            <li><a href="/analytics">Analytics</a></li> <!-- Additional Option 2 -->
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Welcome to AI-Technica Vision Dashboard</h1>
+        <p>Hello, {{ session['username'] }}!</p>
+        <a href="/logout">Logout</a>
+    </header>
+
+    <main id="dashboard-content">
+        <h2>Data from Excel</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="data_file" accept=".xlsx, .xls">
+            <button type="submit">Upload Excel File</button>
+        </form>
+    
+        {% if data %}
+        <div class="table-responsive">
+            {{ data|safe }}
+        </div>
+        {% endif %}
+    </main>
+    
+
+    <footer>
+        <p>&copy; 2023 AI-Technica Vision</p>
+    </footer>
+
+    <script>
+    </script>
+</body>
+</html>

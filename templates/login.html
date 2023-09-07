@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Log in - AI-Technica Vision</title>
+    <!-- Add your CSS stylesheets and other head content here -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Noto+Sans+Mono:wght@200;300&family=Poppins:wght@300&family=Raleway:wght@100;200;300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='logo.svg') }}" alt="Logo" class="logo">
+            </div>
+            <h1>Log in to AI Technica</h1>
+        </header>
+
+        <main>
+            <form method="POST" style="text-align: left; margin: 0 auto;">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br><br>
+                <button type="submit">Log In</button>
+                {% if error %}
+                <p class="error-message" style="text-align: center; color: red;">Wrong username or password</p>
+                {% endif %}
+            </form>
+
+            <p style="text-align: center; margin-top: 15px;">
+                Don't have an account yet? <a href="/signup" class="signup">Sign up!</a>
+            </p>
+        </main>
+    </div>
+</body>
+</html>
